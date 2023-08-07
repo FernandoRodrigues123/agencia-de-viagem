@@ -22,6 +22,12 @@ public class DepoimentoController {
     @Autowired
     private DepoimentoServices depoimentoServices;
 
+
+    @GetMapping("/depoimentos-home")
+    public ResponseEntity<List<DadosLeituraDepoimento>> home(){
+        return ResponseEntity.ok(depoimentoServices.buscatrezDepoimentoAleatoriamente(3));
+    }
+
     @PostMapping
     public ResponseEntity salvar(@RequestBody @Valid DadosCadastroDepoimento dados, UriComponentsBuilder uriBuilder){
         Depoimento depoimento = depoimentoServices.salvar(new Depoimento(dados));

@@ -10,7 +10,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class DepoimentoServices {
@@ -48,4 +50,29 @@ public class DepoimentoServices {
     }
 
 
+    public List<DadosLeituraDepoimento> buscatrezDepoimentoAleatoriamente(int quantidade) {
+        List<Depoimento> todasEntidades = depoimentoRepository.findAll();
+        int totalEntidades = todasEntidades.size();
+
+        List<Depoimento> depoimentosAleatorios = new ArrayList<>();
+
+        Random random = new Random();
+        for (int i = 0; i < quantidade; i++) {
+            int randomIndex = random.nextInt(totalEntidades);
+            depoimentosAleatorios.add(todasEntidades.get(randomIndex));
+        }
+
+        return depoimentosAleatorios.stream().map(DadosLeituraDepoimento::new).toList();
+
+    }
 }
+
+
+
+
+
+
+
+
+
+

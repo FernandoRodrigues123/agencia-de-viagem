@@ -1,1 +1,1 @@
-insert into depoimento values (1,'fernando','foto.png','muito bacana')
+insert into depoimento values (10,'fernando','foto.png','muito bacana')

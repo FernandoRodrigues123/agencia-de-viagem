@@ -19,9 +19,9 @@ import java.util.List;
 @RequestMapping("/depoimentos")
 public class DepoimentoController {
 
-    @Autowired
-    private DepoimentoServices depoimentoServices;
 
+    @Autowired
+    private  DepoimentoServices depoimentoServices;
 
     @GetMapping("/depoimentos-home")
     public ResponseEntity<List<DadosLeituraDepoimento>> home(){
@@ -50,7 +50,7 @@ public class DepoimentoController {
         return ResponseEntity.ok(depoimentoServices.atualizar(dados));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity deletar(@PathVariable Long id){
         depoimentoServices.deletar(id);
         return ResponseEntity.noContent().build();

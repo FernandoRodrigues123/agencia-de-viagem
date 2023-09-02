@@ -6,6 +6,9 @@ import com.agenciadeviagem.dto.depoimento.DadosDetalhamentoDepoimento;
 import com.agenciadeviagem.dto.depoimento.DadosLeituraDepoimento;
 import com.agenciadeviagem.model.Depoimento;
 import com.agenciadeviagem.repository.DepoimentoRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +21,8 @@ import java.util.Random;
 public class DepoimentoServices {
 
     @Autowired
-    private DepoimentoRepository depoimentoRepository;
+    private  DepoimentoRepository depoimentoRepository;
+
 
     @Transactional
     public Depoimento salvar(Depoimento depoimento){
